@@ -49,7 +49,7 @@ Additional Info
 I have setup a bash profile alias to allow calling the playbook and choosing whether to reboot (yes/no as the first parameter argument)
 
 ```
-alias remove-digitalocean='function _remove-digitalocean() { cd /Users/Brad/DevOps/Ansible_Playbooks/playbooks/remove-from-digitalocean; ansible-playbook master.yml --inventory-file=/Users/Brad/.ansible/hosts --extra-vars "host_name=$1 server_fqdn=$2"; };_remove-digitalocean'
+alias remove-digitalocean='function _remove-digitalocean() { cd /Users/Brad/DevOps/Ansible_Playbooks/playbooks/remove-from-digitalocean; ansible-playbook master.yml --inventory-file=/Users/Brad/.ansible/hosts -e @vars/all_vars.yml --extra-vars "host_name=$1 server_fqdn=$2"; };_remove-digitalocean'
 ```
 
 
