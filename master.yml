@@ -1,0 +1,9 @@
+---
+
+- hosts: localhost 
+  tags:
+    - init
+  roles:
+    - stancel.remove_digitalocean_dns_entries
+    - stancel.remove_digitalocean_droplet
+

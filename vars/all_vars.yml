@@ -1,0 +1,37 @@
+---
+# All variables needed to run this playbook or project
+
+# Ansible is flexible and there are many ways you can choose to place variables for the playbooks and roles they run. My preference is to keep any desired default values in their place in the playbooks or roles, but have one file to edit where required variables can be placed and/or default values overridden. My chosen pattern is to create this file for any playbook/project and place the required and desired variables here. This gives: a central place to edit needed values, the highest level of variable precedence and no need to re-pass variables when importing other playbooks into this project since variables placed here are also global in scope. To achieve this when running the playbook/project we will pass this file as parameter like so:
+# ansible-playbook master.yml -e @vars/all_vars.yml -i hosts/production
+
+
+#####     Required Variables      #####
+
+host_name: "Fill in"
+
+server_fqdn: "Fill in"
+
+digital_ocean_api_token: "{{ lookup('env', 'DO_API_TOKEN') }}"
+
+#####   Role - remove_digitalocean_dns_entries   #####
+
+# The Fully Qualified Domain Name that you would like to remove from the DigitalOcean DNS  system. This role will also check to see if there is an entry for this same FQDN, but that is pre-pended by a "www" subdomain and will attempt to delete that entry as well.
+remove_digitalocean_dns_entries_server_fqdn: "{{ server_fqdn }}"
+
+# You must have your DigitalOcean API token saved into this environment variable
+remove_digitalocean_dns_entries_do_token: "{{ digital_ocean_api_token }}"
+
+
+#####   Role - 2 vars    #####
+
+# The droplet name as shown in DigitalOcean GUI. This is usually the hostname of the machine as well unless it was changed.
+remove_digitalocean_droplet_host_name: "{{ host_name }}"
+
+# You must have your DigitalOcean API token saved into this environment variable
+remove_digitalocean_droplet_do_token: "{{ digital_ocean_api_token }}"
+
+
+
+
+
+
