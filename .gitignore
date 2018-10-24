@@ -9,5 +9,6 @@
 # Ansible Vault Password file
 .vault_pass
 
-
+# Any roles downloaded from Ansible Galaxy
+roles/
 
