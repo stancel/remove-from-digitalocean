@@ -1,7 +1,7 @@
 remove-from-digitalocean
 =========
 
-Ansible role to remove a delete a DigitalOcean droplet (VPS) and DNS entries to completely remove a server hosted on DigitalOcean.
+Ansible role that removes DigitalOcean droplets (VPS) and DNS entries for given entries.
 
 
 How to Use
